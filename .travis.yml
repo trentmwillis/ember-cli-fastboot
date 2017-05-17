@@ -2,7 +2,8 @@
 language: node_js
 node_js:
   - "4"
-  - "stable"
+  - "6"
+  - "7"
 
 env:
   - CXX=g++-4.8 WORKER_COUNT=2
@@ -16,21 +17,14 @@ addons:
 sudo: false
 
 cache:
-  directories:
-    - $HOME/.npm
-    - $HOME/.cache # includes bowers cache
+  yarn: true
 
 before_install:
-  - npm config set spin false
-  - npm install -g npm@^3
-  - npm --version
-  - npm install -g bower phantomjs-prebuilt
-  - bower --version
+  - yarn global add phantomjs-prebuilt
   - phantomjs --version
 
 install:
-  - npm install
-  - bower install
+  - yarn
 
 script:
-  - npm test
+  - yarn run test

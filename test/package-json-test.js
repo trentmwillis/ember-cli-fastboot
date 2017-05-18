@@ -155,7 +155,6 @@ describe('generating package.json', function() {
         expect(p(file)).to.be.a.file();
       });
     });
-
   });
 
   describe('with customized outputPaths options', function() {
@@ -185,7 +184,6 @@ describe('generating package.json', function() {
         expect(p(file)).to.be.a.file();
       });
     });
-
   });
 
   describe('with custom htmlFile', function() {
@@ -211,12 +209,11 @@ describe('generating package.json', function() {
       expect(manifest.htmlFile).to.equal('custom-index.html');
       expect(p(manifest.htmlFile)).to.be.a.file();
     });
-
   });
 });
 
 function addFastBootDeps(app) {
-  return app.editPackageJSON(function(pkg) {
+  return app.editPackageJSON(pkg => {
     pkg['devDependencies']['fake-addon'] = '*';
     pkg['devDependencies']['fake-addon-2'] = '*';
     pkg['fastbootDependencies'] = ["rsvp"];

@@ -1,9 +1,10 @@
 ---
 language: node_js
 node_js:
-  - "4"
+  # disabled while we refactor tests
+  # - "4"
   - "6"
-  - "7"
+  # - "7"
 
 env:
   - CXX=g++-4.8 WORKER_COUNT=2

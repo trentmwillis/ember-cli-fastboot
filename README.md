@@ -376,7 +376,7 @@ an array of vendor and app files to load in the sandbox, an addon can define add
 If your addon requires to load something in the sandbox: you can define the `updateFastBootManifest` hook from your addon (in `index.js`):
 
 ```js
-updateFastBootManifest(manifest) {
+updateFastBootManifest(manifest, buildPath) {
   /**
    * manifest is an object containing:
    * {
@@ -384,6 +384,7 @@ updateFastBootManifest(manifest) {
    *    appFiles: [<path of the app file to load>, ...],
    *    htmlFile: '<path of the base page that should be served by FastBoot>'
    * }
+   * buildPath is a string pointing to the current build path.
    */
 
    // This will load the foo.js before vendor.js is loaded in sandbox
